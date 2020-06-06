@@ -2,6 +2,17 @@ import robin_stocks as bot_trader
 import sys, os
 from decouple import config, Csv
 
+'''
+Get order information
+get_all_stock_orders :- Returns a list of all the orders that have been processed for the account.
+get_all_option_orders :- Returns a list of all the option orders that have been processed for the account.
+get_all_crypto_orders :- Returns a list of all the crypto orders that have been processed for the account.
+get_all_open_stock_orders :- Returns a list of all the orders that are currently open.
+get_all_open_option_orders :- Returns a list of all the orders that are currently open.
+get_all_open_crypto_orders :- Returns a list of all the crypto orders that have been processed for the account.
+
+get_stock_order_info(orderID) :- Returns the information for a single order.
+'''
 
 try:
     sign_in = bot_trader.login(username=config('USERNAME'), password=config('PASSWORD'))
@@ -57,3 +68,4 @@ def buy_crypto(symbol, amount):
     except Exception as holdings_err:
         exception_log(holdings_err)
     print('------------------------------------\n')
+
